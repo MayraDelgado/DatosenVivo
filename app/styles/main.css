@@ -52,9 +52,6 @@ USERCARD.TMPL.HTML HTMLJSCSSREGULARCARD.TMPL.HTMLUSERCARD.TMPL.HTML .colorsdemoB
     padding: 24px;
 }
 
-element.style {
-    color: #31302f;
-}
 .md-datepicker-calendar-pane {
     position: absolute;
     top: 0;
@@ -94,7 +91,8 @@ element.style {
 }
  .md-datepicker-calendar-pane.md-pane-open {
     -webkit-transform: scale(1);
-            transform: scale(1); }
+            transform: scale(1); 
+}
 element.style {
     left: 701.094px;
     top: 109px;
