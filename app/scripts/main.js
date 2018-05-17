@@ -45,7 +45,7 @@ geotab.addin.datosEnVivoSuntech = function () {
 
       // getting the current user to display in the UI
       freshApi.getSession(session => {
-        elAddin.querySelector('#datosEnVivoSuntech-user').textContent = session.userName;
+       // elAddin.querySelector('#datosEnVivoSuntech-user').textContent = session.userName;
       });
 
       // show main content
