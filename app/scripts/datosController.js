@@ -11,7 +11,7 @@ var angularObj = {
             $scope.listaIds = [];
             $scope.dispositivoIngresado = [];
             $scope.dispositivoIngresadoInput = document.getElementById("dispositivoIngresado");
-
+            $scope.lstDevice = {};
             $scope.Data = {
                 start: new Date(),
                 end: new Date()
