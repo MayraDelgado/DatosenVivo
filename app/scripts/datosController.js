@@ -23,7 +23,7 @@ var angularObj = {
             }, function (result) {
                 $scope.lstDeviceGeotab = result;
                 $scope.lstDeviceGeotab.forEach(function (device) {
-                    $scope.lstDevice.id = device.id;
+                    $scope.lstDevice.id = device;
                     //console.log(device);
                 }); //console.log(device);
             }, function (error) {
