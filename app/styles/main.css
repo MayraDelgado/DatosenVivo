@@ -94,3 +94,11 @@ element.style {
  .md-datepicker-calendar-pane.md-pane-open {
     -webkit-transform: scale(1);
             transform: scale(1); }
+element.style {
+    display: none;
+    left: 8px;
+    top: 34px;
+    min-width: 689.703px;
+    font-size: 12px;
+    z-index: 1000;
+}
