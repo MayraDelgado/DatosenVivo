@@ -27,7 +27,7 @@ var angularObj = {
                     //console.log(device);
                 }); //console.log(device);
             }, function (error) {
-                console.log(error.message);
+                console.error(error);
             });
 
             // funcion que permite ingresar texto en el search 
@@ -36,7 +36,7 @@ var angularObj = {
             };
 
             $scope.btnImprimir = function () {
-                if ($scope.resultReporteFechas.length === 0) {
+                if ($scope.resultConsultaVehiculos.length === 0) {
                     swal(
                         '',
                         'No hay datos que descargar',
@@ -44,9 +44,9 @@ var angularObj = {
                     )
                     console.log("No hay datos que descargar");
                 } else
-                if ($scope.resultReporteFechas.length > 0) {
-                    $("#fechaInstalacion").table2excel({
-                        filename: "AuditoríadeRegistros_Fechas"
+                if ($scope.resultConsultaVehiculos.length > 0) {
+                    $("#fechaDevice").table2excel({
+                        filename: "DatosVivo_Suntech"
                     });
                 }
             }
@@ -67,15 +67,15 @@ var angularObj = {
                         background: 'rgba(100,100,100,0)'
                     });
                     console.log({
-                        dispositivoIngresado: $scope.dispositivoIngresado,
-                        start: moment($scope.Data.start).format('MM-DD-YYYY'),
-                        end: moment($scope.Data.end).format('MM-DD-YYYY')
+                        device: $scope.dispositivoIngresado,
+                        start: moment($scope.Data.start).format('YYYY-MM-DD'),
+                        end: moment($scope.Data.end).format('YYYY-MM-DD')
                     });
-                    return;
-                    var conAjax = $http.post("", JSON.stringify({
-                        dispositivoIngresado: $scope.dispositivoIngresado,
-                        start: moment($scope.Data.start).format('MM-DD-YYYY'),
-                        end: moment($scope.Data.end).format('MM-DD-YYYY')
+                    //return;
+                    var conAjax = $http.post("http://cppa.metricamovil.com/PMFReports/SunTechData", JSON.stringify({
+                        device: $scope.dispositivoIngresado,
+                        start: moment($scope.Data.start).format('YYYY-MM-DD'),
+                        end: moment($scope.Data.end).format('YYYY-MM-DD')
                     }), {
                         headers: {
                             'Content-Type': 'application/json'
@@ -91,42 +91,6 @@ var angularObj = {
                         }
                     }, function errorCallback(response) {
                         console.log(response);
-                    });
-                }
-            }
-            $scope.vehiculosReport = function () {
-                if ($scope.deviceId.value === $scope.deviceId.value) {
-                    swal({
-                        imageUrl: 'https://rawgit.com/MayraDelgado/reportes/master/app/img/cargando5.gif',
-                        timer: 5000,
-                        showConfirmButton: false,
-                        background: 'rgba(100, 100, 100, 0)'
-                    });
-                    console.log({
-                        start: moment($scope.Data.start).format('MM-DD-YYYY'),
-                        end: moment($scope.Data.end).format('MM-DD-YYYY'),
-
-                    });
-                    return;
-                    var conAjax = $http.post("", JSON.stringify({
-                        start: moment($scope.Data.start).format('MM-DD-YYYY'),
-                        end: moment($scope.Data.end).format('MM-DD-YYYY'),
-                        devices: $scope.listaIds
-                    }), {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(function successCallback(response) {
-                        $scope.resultConsultaVehiculos = response.data;
-                        console.log(response);
-                        if ($scope.resultConsultaVehiculos.length === 0) {
-                            swal({
-                                type: 'error',
-                                text: 'No existen registros en el rango de fechas seleccionado'
-                            });
-                        }
-                    }, function errorCallback(response) {
-                        console.error(response);
                     });
                 }
             }
