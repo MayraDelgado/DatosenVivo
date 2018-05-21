@@ -73,6 +73,7 @@ USERCARD.TMPL.HTML HTMLJSCSSREGULARCARD.TMPL.HTMLUSERCARD.TMPL.HTML .colorsdemoB
   .md-datepicker-calendar-pane.md-pane-open {
     -webkit-transform: scale(1);
             transform: scale(1); 
+      z-index: 1000;
 }
 
 
