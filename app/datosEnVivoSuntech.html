@@ -46,6 +46,7 @@
 
 </head>
 
+
 <body>
 
   <div id="datosEnVivoSuntech" class="hidden">
@@ -63,80 +64,45 @@
 
     <!--inicia codigo datos en vivo Suntech-->
     <div layout="row" layout-md="column" ng-controller="accesoDatosController">
-      <div flex layout="column" style="height: 400px;">
+      <div flex>
         <br>
         <br>
-
-        <!--card-->
-        <!-- Example 1 -->
-        <md-card>
-          <md-card-title>
-            <md-card-title-media>
-              <div class="md-media-sm card-media" layout>
-                <!--md-icon md-svg-icon="person" style="color:grey"></md-icon-->
+        <div layout="row" layout-xs="column">
+          <div flex>
+            <center>
+              <div layout="row ">
+                <md-input-container flex="80">
+                  <br>
+                  <label>DeviceId</label>
+                  <input id="dispositivoIngresado" name="clientName" ng-model="dispositivoIngresado">
+                </md-input-container>
               </div>
-            </md-card-title-media>
-            <md-card-title-text>
-              <div flex>
-                <div layout="row" layout-wrap>
-                  <div flex="30">
-                    <div flex>
-                      <center>
-                        <div layout="row ">
-                          <md-input-container flex="80">
-                            <br>
-                            <label>DeviceId</label>
-                            <input id="dispositivoIngresado" name="clientName" ng-model="dispositivoIngresado">
-                            <!--small class="md-caption ">
-                              <md-tooltip md-direction="top" md-visible="tooltipVisible">Doble clic en la pantalla para cerrar lista de vehículos</md-tooltip>
-                              <md-select multiple id="select" name="field " ng-model="dispositivoSeleccionado
-                                          " placeholder="Buscar Vehículos... " data-md-container-class="selectdemoSelectHeader "
-                                ng-init="showOptions = true" my-on-focus="showOptions" md-on-close="showOptions=false">
-                                <md-select-header layout="column " class="demo-select-header " id="divFechas ">
-                                  <md-input-container>
-                                    <input id="select2" ng-model="busqueda " type="search " ng-model-options="{debounce: { 'default': 1000,
-                                          'blur': 0}} " placeholder="Buscar Vehículos... " class="demo-header-searchbox md-text "
-                                      ng-keydown="updateSearch($event) " />
-                                  </md-input-container>
-                                </md-select-header>
-                                <md-option ng-repeat="dispositivo in lstDeviceGeotab | filter: busqueda " ng-value="{{dispositivo}} ">{{dispositivo.name}}</md-option>
-                              </md-select>
-                              <div ng-messages="form.field.$error ">
-                              </div>
-                            </small-->
-                          </md-input-container>
-                        </div>
-                      </center>
-                    </div>
-                  </div>
-                  <div flex="30">
-                    <br>
-                    <md-input-container>
-                      <div flex-gt-xs>
-                        <md-datepicker ng-model="Data.start" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
-                      </div>
-                    </md-input-container>
-                  </div>
-                  <div flex="30">
-                    <br>
-                    <md-input-container>
-                      <div flex-gt-xs>
-                        <md-datepicker ng-model="Data.end" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
-                      </div>
-                    </md-input-container>
-                  </div>
-                  <div flex="10">
-                    <br>
-                    <br>
-                    <md-button class="md-raised md-primary" ng-click="vehiculosReport1()">
-                      <span class="md-caption">Consultar</span>
-                    </md-button>
-                  </div>
-                </div>
+            </center>
+          </div>
+          <div flex="30">
+            <br>
+            <md-input-container>
+              <div flex-gt-xs>
+                <md-datepicker ng-model="Data.start" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
               </div>
-            </md-card-title-text>
-          </md-card-title>
-        </md-card>
+            </md-input-container>
+          </div>
+          <div flex="30">
+            <br>
+            <md-input-container>
+              <div flex-gt-xs>
+                <md-datepicker ng-model="Data.end" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+              </div>
+            </md-input-container>
+          </div>
+          <div flex="10">
+            <br>
+            <br>
+            <md-button class="md-raised md-primary" ng-click="vehiculosReport1()">
+              <span class="md-caption">Consultar</span>
+            </md-button>
+          </div>
+        </div>
         <div layout="row">
           <div flex-gt-sm="66" flex="33">
             <p class="md-body-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datos de consulta...
@@ -146,61 +112,80 @@
             </p>
           </div>
         </div>
-        <div layout="row" layout-xs="column">
-          <div flex>
-            <md-table-container>
-              <!--ng-model="selected " esto va en la tabla-->
-              <table md-table ng-model="selected" md-row-select md-progress="promise " id="fechaDevice" style="width:100% ">
-                <thead md-head>
-                  <tr md-row>
-                    <th md-column md-numeric>Id</th>
-                    <!--th md-column md-numeric>VIN </th-->
-                    <!--th md-column md-numeric>Económico </th-->
-                    <th md-column md-numeric>Numero de serie</th>
-                    <th md-column md-numeric>Ultima comunicacion Geotab</th>
-                    <th md-column md-numeric>Fecha inicio de consulta</th>
-                    <th md-column md-numeric>Fecha fin de consulta</th>
-                    <th md-column md-numeric>Geotab boton de panico</th>
-                    <th md-column md-numeric>Cinturon de seguridad</th>
-                    <th md-column md-numeric>Reversa</th>
-                    <th md-column md-numeric>Aux 5</th>
-                    <th md-column md-numeric>Aux 6</th>
-                    <th md-column md-numeric>Aux 7</th>
-                    <th md-column md-numeric>Aux 8</th>
-                    <th md-column md-numeric>Circulo de seguridad</th>
-                    <th md-column md-numeric>sunTech Id</th>
-                    <th md-column md-numeric>sunTech Boton de panico</th>
-                    <th md-column md-numeric>Llamada en cabina</th>
-                  </tr>
-                </thead>
-                <tbody md-body>
-                  <tr md-row md-select-id="name " md-auto-select ng-repeat="dispositivo in resultConsultaVehiculos track by $index ">
-                    <td md-cell>{{dispositivo.GOId}}</td>
-                    <!--td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td-->
-                    <!--td>{{lstDevice.name}}</td-->
-                    <td md-cell>{{dispositivo.GOSerialNumber}}</td>
-                    <td md-cell>{{dispositivo.LastCommunication}}</td>
-                    <td md-cell>{{Data.start}}</td>
-                    <td md-cell>{{Data.end}}</td>
-                    <td md-cell>{{dispositivo.GOPanicButton}}</td>
-                    <td md-cell>{{dispositivo.GOBelt}}</td>
-                    <td md-cell>{{dispositivo.GOReverse}}</td>
-                    <td md-cell>{{dispositivo.GOButton1}}</td>
-                    <td md-cell>{{dispositivo.GOButton2}}</td>
-                    <td md-cell>{{dispositivo.GOButton3}}</td>
-                    <td md-cell>{{dispositivo.GOButton4}}</td>
-                    <td md-cell>{{dispositivo.GOSafetyCircle}}</td>
-                    <td md-cell>{{dispositivo.SunTechId}}</td>
-                    <td md-cell>{{dispositivo.SunTechPanicButton}}</td>
-                    <td md-cell>{{dispositivo.SunTechCalls}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </md-table-container>
+        <div container>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-table-container>
+                <!--ng-model="selected " esto va en la tabla-->
+                <table md-table ng-model="selected" md-row-select md-progress="promise " id="fechaDevice" style="width:100% ">
+                  <thead md-head>
+                    <tr md-row>
+                      <!--th md-column md-numeric>start</th>
+                      <th md-column md-numeric>end</th-->
+                      <th md-column md-numeric>ReportType</th>
+                      <th md-column md-numeric>DeviceId</th>
+                      <th md-column md-numeric>DateTime</th>
+                      <th md-column md-numeric>DeviceModel</th>
+                      <th md-column md-numeric>SwVersion</th>
+                      <th md-column md-numeric>Signal</th>
+                      <th md-column md-numeric>Latitude</th>
+                      <th md-column md-numeric>Longitude</th>
+                      <th md-column md-numeric>Speed</th>
+                      <th md-column md-numeric>Bearing</th>
+                      <th md-column md-numeric>Distance</th>
+                      <th md-column md-numeric>BackupPower</th>
+                      <th md-column md-numeric>Power</th>
+                      <th md-column md-numeric>IOstatus</th>
+                      <th md-column md-numeric>Mode</th>
+                      <th md-column md-numeric>Driving</th>
+                      <th md-column md-numeric>MessageType</th>
+                      <th md-column md-numeric>Adc</th>
+                      <th md-column md-numeric>EmergencyId</th>
+                      <th md-column md-numeric>EventId</th>
+                      <th md-column md-numeric>AlertId</th>
+                      <th md-column md-numeric>Processed</th>
+                      <th md-column md-numeric>GpsFixed</th>
+                      <th md-column md-numeric>Satt</th>
+                      <th md-column md-numeric>CallerId</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select-id="name " md-auto-select ng-repeat="dispositivo in resultConsultaVehiculos track by $index ">
+                      <!--td md-cell>{{Data.start}}</td>
+                      <td md-cell>{{Data.end}}</td-->
+                      <td md-cell>{{dispositivo.ReportType}}</td>
+                      <td md-cell>{{dispositivo.DeviceId}}</td>
+                      <td md-cell>{{dispositivo.DateTime}}</td>
+                      <td md-cell>{{dispositivo.DeviceModel}}</td>
+                      <td md-cell>{{dispositivo.SwVersion}}</td>
+                      <td md-cell>{{dispositivo.Signal}}</td>
+                      <td md-cell>{{dispositivo.Latitude}}</td>
+                      <td md-cell>{{dispositivo.Longitude}}</td>
+                      <td md-cell>{{dispositivo.Speed}}</td>
+                      <td md-cell>{{dispositivo.Bearing}}</td>
+                      <td md-cell>{{dispositivo.Distance}}</td>
+                      <td md-cell>{{dispositivo.BackupPower}}</td>
+                      <td md-cell>{{dispositivo.Power}}</td>
+                      <td md-cell>{{dispositivo.IOstatus}}</td>
+                      <td md-cell>{{dispositivo.Mode}}</td>
+                      <td md-cell>{{dispositivo.Driving}}</td>
+                      <td md-cell>{{dispositivo.MessageType}}</td>
+                      <td md-cell>{{dispositivo.Adc}}</td>
+                      <td md-cell>{{dispositivo.EmergencyId}}</td>
+                      <td md-cell>{{dispositivo.EventId}}</td>
+                      <td md-cell>{{dispositivo.AlertId}}</td>
+                      <td md-cell>{{dispositivo.Processed}}</td>
+                      <td md-cell>{{dispositivo.GpsFixed}}</td>
+                      <td md-cell>{{dispositivo.Satt}}</td>
+                      <td md-cell>{{dispositivo.CallerId}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
 
+            </div>
           </div>
         </div>
-
       </div>
 
     </div>
