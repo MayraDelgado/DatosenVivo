@@ -9,6 +9,7 @@ var angularObj = {
             $scope.resultReporteFechas = [];
             $scope.deviceId = [];
             $scope.listaIds = [];
+            $scope.resultConsultaVehiculos = [];
             $scope.dispositivoIngresado = [];
             $scope.dispositivoIngresadoInput = document.getElementById("dispositivoIngresado");
             $scope.lstDevice = {};
