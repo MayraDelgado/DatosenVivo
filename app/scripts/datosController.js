@@ -72,7 +72,7 @@ var angularObj = {
                         end: moment($scope.Data.end).format('YYYY-MM-DD')
                     });
                     //return;
-                    var conAjax = $http.post("http://cppa.metricamovil.com/PMFReports/SunTechData", JSON.stringify({
+                    var conAjax = $https.post("http://cppa.metricamovil.com/PMFReports/SunTechData", JSON.stringify({
                         device: $scope.dispositivoIngresado,
                         start: moment($scope.Data.start).format('YYYY-MM-DD'),
                         end: moment($scope.Data.end).format('YYYY-MM-DD')
