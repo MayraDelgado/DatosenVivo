@@ -87,7 +87,7 @@ var angularObj = {
                         if ($scope.resultConsultaVehiculos.length === 0) {
                             swal({
                                 type: 'error',
-                                text: 'No exixten registros en el rango de fechas seleccionado.'
+                                text: 'No existen registros en el rango de fechas seleccionado.'
                             });
                         }
                     }, function errorCallback(response) {
