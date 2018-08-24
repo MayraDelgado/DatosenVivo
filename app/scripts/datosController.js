@@ -75,8 +75,8 @@ var angularObj = {
                     //return;
                     var conAjax = $http.post("https://cppa.metricamovil.com/PMFReports/SunTechData", JSON.stringify({
                         device: $scope.dispositivoIngresado,
-                        start: moment($scope.Data.start).format('YYYY-MM-DD'),
-                        end: moment($scope.Data.end).format('YYYY-MM-DD')
+                        start: moment($scope.Data.start).format('YYYY-MM-DD') + " 05:00:00",
+                        end: moment($scope.Data.end).add(1,'d').format('YYYY-MM-DD')+ " 05:00:00"
                     }), {
                         headers: {
                             'Content-Type': 'application/json'
